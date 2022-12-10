@@ -86,18 +86,27 @@ public class Human {
     }
 
     public void greetPet(){
-        List<Pet>petNames = new ArrayList<>(family.getPet());
-        for (Pet pet : petNames) {
-            System.out.printf("Hello, %s,\n", pet.getNickname());
+        try {
+            for (Pet pet : family.getPet()) {
+                System.out.printf("Hello, %s,\n", pet.getNickname());
+            }
+        }
+        catch (NullPointerException ex){
+            System.out.println("\nFamily does not have any pets!\n");
         }
 
     }
     public void describePet() {
-        family.getPet().stream().filter(a -> a.getTrickLevel() > 50)
-                .forEach(a -> System.out.printf("I have a %s, he is %s years old, he is very sly.\n",a.getSpecies(),a.getAge()));
-        family.getPet().stream().filter(a -> a.getTrickLevel() < 50)
-                       .forEach(a -> System.out.printf("I have a %s, he is %s years old, he is almost not sly.\n",a.getSpecies(),a.getAge()));
-                }
+        try {
+            family.getPet().stream().filter(a -> a.getTrickLevel() > 50)
+                    .forEach(a -> System.out.printf("I have a %s, he is %s years old, he is very sly.\n", a.getSpecies(), a.getAge()));
+            family.getPet().stream().filter(a -> a.getTrickLevel() < 50)
+                    .forEach(a -> System.out.printf("I have a %s, he is %s years old, he is almost not sly.\n", a.getSpecies(), a.getAge()));
+        }
+        catch (NullPointerException ex){
+            System.out.println("\nFamily does not have any pets!\n");
+        }
+    }
     public int setIQ(){
         Random rn = new Random();
         this.iq = rn.nextInt(101) + 1;
@@ -111,10 +120,15 @@ public class Human {
         System.out.println("Feeding pets");
     }
     else {
-        family.getPet().stream().filter(a -> a.getTrickLevel() > refer)
-                .forEach(a -> System.out.printf("Hmm... I think i will feed %s.\n",a.getNickname()));
-        family.getPet().stream().filter(a -> a.getTrickLevel() < refer)
-                .forEach(a -> System.out.printf("I think %s is not hungry.\n",a.getNickname()));
+        try {
+            family.getPet().stream().filter(a -> a.getTrickLevel() > refer)
+                    .forEach(a -> System.out.printf("Hmm... I think i will feed %s.\n", a.getNickname()));
+            family.getPet().stream().filter(a -> a.getTrickLevel() < refer)
+                    .forEach(a -> System.out.printf("I think %s is not hungry.\n", a.getNickname()));
+        }
+        catch (NullPointerException ex){
+            System.out.println("\nFamily does not have any pets!\n");
+        }
     }
 }
 

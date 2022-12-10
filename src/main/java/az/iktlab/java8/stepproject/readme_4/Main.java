@@ -27,7 +27,7 @@ public class Main {
         HashSet<Pet> pets = new HashSet<>();
         pets.add(jony);
         f1.addChild(jack);
-        f1.setPet(pets);
+        //f1.setPet(pets);
         System.out.println(f1.countFamily());
         System.out.println(f1);
         jack.setFamily(f1);
