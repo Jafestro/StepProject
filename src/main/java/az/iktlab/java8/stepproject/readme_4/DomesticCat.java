@@ -2,7 +2,7 @@ package az.iktlab.java8.stepproject.readme_4;
 
 import java.util.Set;
 
-public class DomesticCat extends Pet implements PetsFoul{
+public class DomesticCat extends Pet implements PetsFoul {
     public DomesticCat(String nickname) {
         super(nickname);
     }
@@ -17,5 +17,12 @@ public class DomesticCat extends Pet implements PetsFoul{
     @Override
     public void respond() {
         System.out.println("Meow. Purrrr");
+    }
+
+    // some codes are not good
+    // actually all of code are wrong !!!
+
+    public void jafarTest() {
+        System.out.println("Jafar Meow");
     }
 }
